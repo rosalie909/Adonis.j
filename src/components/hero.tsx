@@ -18,27 +18,26 @@ const Hero: React.FC = () => {
               MOFOTO <span className="text-[#E03BF2]">Rosalie</span>
             </h1>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#555555]">
-              <span className="bg-clip-text text-transparent bg-gradient-to from-[#E03BF2] to-[#A8D2DF]">
-  Développeuse web
-</span>
-
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#E03BF2] to-[#A8D2DF]">
+                Développeuse web
+              </span>
             </h2>
-           <p className="font-semibold max-w-md text-[#555555] text-base md:text-lg">
-  Je conçois des interfaces numériques intuitives et performantes, alliant esthétique soignée et expérience utilisateur fluide.
-</p>
+            <p className="font-semibold max-w-md text-[#555555] text-base md:text-lg">
+              Je conçois des interfaces numériques intuitives et performantes, alliant esthétique soignée et expérience utilisateur fluide.
+            </p>
             
             {/* --- ZONE DES BOUTONS FLEXIBLES --- */}
             <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto">
               
               {/* Bouton Mon CV */}
               <a 
-  href="/CV public de Rosalie Mofoto (0).pdf "  /* Le / signifie "racine du dossier public" */
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="btn bg-white text-[#E03BF2] border-2 border-[#E03BF2] hover:bg-[#E03BF2] hover:text-white rounded-full px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl shadow-lg transition-all hover:scale-105 flex items-center justify-center"
->
-  Mon CV
-</a>
+                href="/CV public de Rosalie Mofoto (0).pdf"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn bg-white text-[#E03BF2] border-2 border-[#E03BF2] hover:bg-[#E03BF2] hover:text-white rounded-full px-8 py-3 md:px-10 md:py-4 text-lg md:text-xl shadow-lg transition-all hover:scale-105 flex items-center justify-center"
+              >
+                Mon CV
+              </a>
 
             </div>
 
@@ -46,20 +45,19 @@ const Hero: React.FC = () => {
             <div className="flex gap-6 mt-6">
               <SocialIcon
                 icon={<FaFacebookF />}
-                color="#1877F2"
+                color="#1877F2" // Bleu Facebook
                 href="https://www.facebook.com/MofotoMolekela"
               />
   
-              
               <SocialIcon 
                 icon={<FaGithub />} 
-                color="#333333" 
+                color="#000000" 
                 href="https://github.com/rosalie909"
               />
 
               <SocialIcon 
                 icon={<FaLinkedinIn />} 
-                color="#0A66C2" 
+                color="#0A66C2" // Bleu LinkedIn
                 href="https://www.linkedin.com/in/rosalie-mofoto/"
               />
             </div>
@@ -92,8 +90,10 @@ const SocialIcon = ({ icon, color, href }: { icon: React.ReactNode; color: strin
     href={href} 
     target="_blank" 
     rel="noopener noreferrer"
-    className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full text-white bg-[#1877F2]
-      hover:bg-[${color}] hover:scale-110 transition-all duration-300 shadow-md text-lg md:text-xl`}
+   
+    style={{ backgroundColor: color }}
+    className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full text-white 
+      hover:opacity-80 hover:scale-110 transition-all duration-300 shadow-md text-lg md:text-xl"
   >
     {icon}
   </a>
