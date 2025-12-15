@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
     setIsLoading(true);
 
     const serviceID = "service_8iuwxkg";
-    const templateID = "template_3id8njq"; // ton template "Nous contacter"
+    const templateID = "template_3id8njq"; 
     const publicKey = "kGP5Rda2xNe7g__Yw";
 
     emailjs
@@ -50,14 +50,14 @@ const Contact: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 type="text"
-                name="nom"
+                name="from_name"
                 placeholder="Votre Nom"
                 required
                 className="input input-bordered w-full p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors"
               />
               <input
                 type="email"
-                name="e-mail"
+                name="reply_to"
                 placeholder="Votre Email"
                 required
                 className="input input-bordered w-full p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors"
@@ -66,7 +66,7 @@ const Contact: React.FC = () => {
 
             <input
               type="text"
-              name="titre"
+              name="subject"
               placeholder="Sujet"
               required
               className="input input-bordered w-full p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors"

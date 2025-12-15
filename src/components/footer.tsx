@@ -3,7 +3,7 @@ import { FaFacebookF, FaGithub, FaLinkedinIn, FaWhatsapp, FaPhoneAlt, FaEnvelope
 
 const Footer: React.FC = () => {
   return (
-    // FOND: Utilisation du #1F1F1F (le gris foncé du Hero) pour un contraste élégant
+  
     <footer className="bg-[#1F1F1F] text-white pt-16 pb-8 border-t-4 border-[#E03BF2]">
       <div className="container mx-auto px-5 md:px-10">
         
@@ -104,7 +104,6 @@ const SocialLink = ({ href, icon, hoverClass }: SocialLinkProps) => (
     href={href} 
     target="_blank" 
     rel="noopener noreferrer"
-    // Fond gris foncé (#2A2A2A) pour ressortir sur le noir, transition fluide
     className={`w-10 h-10 rounded-full bg-[#2A2A2A] flex items-center justify-center text-gray-400 transition-all duration-300 ${hoverClass}`}
   >
     {icon}
