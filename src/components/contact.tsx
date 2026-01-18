@@ -15,17 +15,30 @@ const Contact: React.FC = () => {
     const templateID = "template_3id8njq"; 
     const publicKey = "kGP5Rda2xNe7g__Yw";
 
+    // --- AMÉLIORATION ICI : On prépare les données proprement ---
+    const templateParams = {
+      from_name: formRef.current.from_name.value,
+      reply_to: formRef.current.reply_to.value,
+      subject: formRef.current.subject.value,
+      message: formRef.current.message.value,
+      // On ajoute l'heure ici pour que {{time}} fonctionne dans ton template
+      time: new Date().toLocaleString("fr-FR", { 
+        weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' 
+      }),
+    };
+
+    // --- On utilise .send à la place de .sendForm ---
     emailjs
-      .sendForm(serviceID, templateID, formRef.current, publicKey)
+      .send(serviceID, templateID, templateParams, publicKey)
       .then(
         (result) => {
           console.log("✅ Message envoyé !", result.status, result.text);
-          alert("Message envoyé avec succès !");
-          formRef.current?.reset(); // vide automatiquement le formulaire
+          alert(`Merci ${templateParams.from_name}, votre message a été envoyé !`);
+          formRef.current?.reset();
         },
         (error) => {
           console.error("❌ Erreur :", error);
-          alert("Erreur lors de l'envoi du message. Vérifie la console.");
+          alert("Erreur lors de l'envoi du message.");
         }
       )
       .finally(() => setIsLoading(false));
@@ -34,7 +47,6 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-5 md:px-10">
-        {/* Titre */}
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900">
             <span className="text-[#E03BF2]">CONTACT</span>
@@ -44,20 +56,19 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        {/* Formulaire */}
         <div className="max-w-3xl mx-auto mt-10 p-8 rounded-2xl shadow-lg bg-white border border-gray-100">
           <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <input
                 type="text"
-                name="from_name"
-                placeholder="Votre Nom"
+                name="from_name" // Correspond à {{from_name}}
+                placeholder="Prénom et Nom"
                 required
                 className="input input-bordered w-full p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors"
               />
               <input
                 type="email"
-                name="reply_to"
+                name="reply_to" // Correspond à {{reply_to}}
                 placeholder="Votre Email"
                 required
                 className="input input-bordered w-full p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors"
@@ -66,14 +77,14 @@ const Contact: React.FC = () => {
 
             <input
               type="text"
-              name="subject"
+              name="subject" // Correspond à {{subject}}
               placeholder="Sujet"
               required
               className="input input-bordered w-full p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors"
             />
 
             <textarea
-              name="message"
+              name="message" // Correspond à {{message}}
               placeholder="Votre Message"
               required
               className="textarea textarea-bordered w-full h-32 p-3 border rounded-lg focus:border-[#A8D2DF] focus:outline-none transition-colors resize-none"
