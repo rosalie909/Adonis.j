@@ -7,7 +7,7 @@ const About: React.FC = () => {
       id="about"
       className="py-24 md:py-36 bg-[#F5F5F5] relative font-sans overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-10">
         <div className="max-w-4xl mx-auto">
 
           {/* TITRE */}

@@ -1,24 +1,30 @@
 import React from 'react';
 
 const Portfolio: React.FC = () => {
-  
   const projects = [
     {
       id: 1,
-      title: "Système Comptable",
+      title: "Application pédagogique Comptabilité",
       image: "/image.png", 
       description:
-        "Projet de mise en place d’un système comptable conforme au SYSCOHADA révisé. Je réalise la tenue complète des opérations courantes : saisie des écritures, suivi des journaux, contrôle du Grand Livre, lettrage et rapprochements. J’élabore également tous les états financiers réglementaires."
+        "Développement d’une application pédagogique destinée aux comptables débutants. L’outil permet de consulter facilement la liste complète des comptes et de comprendre la structure des quatre états financiers principaux : bilan, compte de résultat, tableau de flux de trésorerie et état des variations des capitaux propres. Cette application facilite l’apprentissage et la pratique de la comptabilité conformément au SYSCOHADA révisé."
     },
     {
       id: 2,
-      title: "Projet en cours",
+      title: "Application Gestion d’argent",
+      image: "/gestion.png", 
+      description:
+        "Développement d’une application pratique pour aider les utilisateurs à mieux gérer leur argent. Elle permet de suivre ses dépenses, planifier un budget et obtenir des conseils personnalisés pour optimiser ses finances personnelles. Elle s’adresse à toute personne souhaitant apprendre à gérer son argent de manière efficace et responsable."
+    },
+    {
+      id: 3,
+      title: "Portfolio",
       image: "/header.jpg", 
       description:
         "Je crée des interfaces modernes et bien structurées avec React, Vite, Tailwind et DaisyUI. J’accorde une grande importance au design et je reproduis fidèlement mes maquettes pour offrir une expérience utilisateur fluide, propre et responsive."
     },
     {
-      id: 3,
+      id: 4,
       title: "Clone Twitter / X",
       image: "/Welcome page.png", 
       description:
@@ -47,7 +53,6 @@ const Portfolio: React.FC = () => {
               key={project.id}
               className="bg-white rounded-2xl shadow-lg border border-[#DFA4C7]/20 hover:border-[#E03BF2] transition-all duration-300 overflow-hidden group flex flex-col"
             >
-              
               {/* Image */}
               <div className="aspect-video bg-gray-200 overflow-hidden relative">
                 <img 

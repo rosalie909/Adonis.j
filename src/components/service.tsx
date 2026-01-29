@@ -43,7 +43,7 @@ const Services: React.FC = () => {
           {services.map((service) => (
             <div 
               key={service.id}
-              className=" p-10 rounded-3xl border border-gray-100 
+              className="max-w-7xl mx-auto p-10 rounded-3xl border border-gray-100 
                           hover:-translate-y-2 
                          transition-all duration-300 group text-center"
             >
